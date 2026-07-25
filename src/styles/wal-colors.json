@@ -1,0 +1,29 @@
+{
+    "checksum": "4c7f04c16d4f4976788233f6557fd826",
+    "wallpaper": "/home/ajrom/Pictures/wallpapers/nord/a_group_of_flowers_on_a_black_background.png",
+    "alpha": "100",
+
+    "special": {
+        "background": "#0c1521",
+        "foreground": "#c3c4c6",
+        "cursor": "#c3c4c6"
+    },
+    "colors": {
+        "color0": "#0c1521",
+        "color1": "#be4e47",
+        "color2": "#5f779c",
+        "color3": "#ae5e99",
+        "color4": "#5facb3",
+        "color5": "#5eabba",
+        "color6": "#809bbb",
+        "color7": "#c3c4c6",
+        "color8": "#486086",
+        "color9": "#be4e47",
+        "color10": "#5f779c",
+        "color11": "#ae5e99",
+        "color12": "#5facb3",
+        "color13": "#5eabba",
+        "color14": "#809bbb",
+        "color15": "#c3c4c6"
+    }
+}

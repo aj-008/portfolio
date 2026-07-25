@@ -1,3 +1,13 @@
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+
+const wal = JSON.parse(
+  readFileSync(
+    fileURLToPath(new URL('./src/styles/wal-colors.json', import.meta.url)),
+    'utf-8'
+  )
+);
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,ts,tsx}'],
@@ -8,11 +18,12 @@ export default {
         sans: ['"Inter"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       colors: {
-        // swap these for your own pywal / Hyprland palette
-        bg: '#0f1115',
-        surface: '#181b21',
-        accent: '#8ab4f8',
-        muted: '#8892a0',
+        // pulled from src/styles/wal-colors.json (synced from ~/.cache/wal/colors.json)
+        bg: wal.special.background,
+        surface: wal.colors.color0,
+        accent: wal.colors.color4,
+        muted: wal.colors.color7,
+        fg: wal.special.foreground,
       },
     },
   },
