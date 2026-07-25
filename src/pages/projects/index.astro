@@ -1,0 +1,27 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { getCollection } from 'astro:content';
+
+const allProjects = (await getCollection('projects')).sort(
+  (a, b) => a.data.order - b.data.order
+);
+---
+<Layout title="Projects">
+  <section class="py-12">
+    <h1 class="font-mono text-2xl text-slate-100 mb-8">Projects</h1>
+    <div class="grid gap-4 sm:grid-cols-2">
+      {allProjects.map((project) => (
+        <ProjectCard
+          title={project.data.title}
+          tagline={project.data.tagline}
+          stack={project.data.stack}
+          role={project.data.role}
+          href={`/projects/${project.slug}`}
+          demoUrl={project.data.demoUrl}
+          githubUrl={project.data.githubUrl}
+        />
+      ))}
+    </div>
+  </section>
+</Layout>

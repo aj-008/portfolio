@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const skills = [
+  'Rust', 'C++', 'Python', 'TypeScript/React',
+  'ChampSim', 'Computer Architecture', 'Docker', 'Linux',
+  'Embedded Systems (STM32)', 'CUDA', 'Tailscale/self-hosting', 'Git',
+];
+---
+<Layout title="About">
+  <section class="py-12 max-w-2xl">
+    <h1 class="font-mono text-2xl text-slate-100 mb-6">About</h1>
+
+    <div class="prose prose-invert prose-sm max-w-none">
+      <p>
+        I'm a Computer Engineering student at Tufts, on an unusual trajectory —
+        I took upper-level electives (computer architecture, parallel computing,
+        embedded systems, GPU computing) before some of the foundational courses.
+        That order has shaped how I approach projects: I tend to go deep on the
+        systems layer first, then backfill theory as I need it.
+      </p>
+      <p>
+        Most of my recent work centers on cache replacement policy research —
+        co-authoring a paper evaluating how modern LLC policies generalize
+        across workloads, and building <a href="/projects/aster">Aster</a>, a
+        Rust cache simulator, to validate and extend those findings.
+      </p>
+      <p>
+        Outside of that, I self-host infrastructure for fun, care about how my
+        dev environment looks and feels (Hyprland, Colemak-DH, pywal theming),
+        and train consistently using powerlifting-style programming.
+      </p>
+    </div>
+
+    <h2 class="font-mono text-sm uppercase tracking-wide text-muted mt-10 mb-4">Skills</h2>
+    <div class="flex flex-wrap gap-2">
+      {skills.map((skill) => (
+        <span class="text-xs font-mono rounded bg-white/5 px-2 py-1 text-slate-300">{skill}</span>
+      ))}
+    </div>
+  </section>
+</Layout>
