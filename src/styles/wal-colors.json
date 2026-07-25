@@ -1,29 +1,29 @@
 {
-    "checksum": "4c7f04c16d4f4976788233f6557fd826",
-    "wallpaper": "/home/ajrom/Pictures/wallpapers/nord/a_group_of_flowers_on_a_black_background.png",
+    "checksum": "034d1917962eedfd39028479f68a91dd",
+    "wallpaper": "/home/ajrom/Pictures/wallpapers/gruvbox/a_fish_swimming_in_water.png",
     "alpha": "100",
 
     "special": {
-        "background": "#0c1521",
-        "foreground": "#c3c4c6",
-        "cursor": "#c3c4c6"
+        "background": "#0c101a",
+        "foreground": "#c3c3c5",
+        "cursor": "#c3c3c5"
     },
     "colors": {
-        "color0": "#0c1521",
-        "color1": "#be4e47",
-        "color2": "#5f779c",
-        "color3": "#ae5e99",
-        "color4": "#5facb3",
-        "color5": "#5eabba",
-        "color6": "#809bbb",
-        "color7": "#c3c4c6",
-        "color8": "#486086",
-        "color9": "#be4e47",
-        "color10": "#5f779c",
-        "color11": "#ae5e99",
-        "color12": "#5facb3",
-        "color13": "#5eabba",
-        "color14": "#809bbb",
-        "color15": "#c3c4c6"
+        "color0": "#0c101a",
+        "color1": "#9c302a",
+        "color2": "#af4837",
+        "color3": "#d23c2d",
+        "color4": "#dd5439",
+        "color5": "#65a657",
+        "color6": "#a1c35d",
+        "color7": "#c3c3c5",
+        "color8": "#465283",
+        "color9": "#9c302a",
+        "color10": "#af4837",
+        "color11": "#d23c2d",
+        "color12": "#dd5439",
+        "color13": "#65a657",
+        "color14": "#a1c35d",
+        "color15": "#c3c3c5"
     }
 }
