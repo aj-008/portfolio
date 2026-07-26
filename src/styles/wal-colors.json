@@ -1,29 +1,29 @@
 {
-    "checksum": "04150db93647ec6bc5348188f9855835",
-    "wallpaper": "/home/ajrom/Pictures/wallpapers/solarized/a_red_sun_over_mountains.jpg",
+    "checksum": "034d1917962eedfd39028479f68a91dd",
+    "wallpaper": "/home/ajrom/Pictures/wallpapers/gruvbox/a_fish_swimming_in_water.png",
     "alpha": "100",
 
     "special": {
-        "background": "#0c0e19",
-        "foreground": "#c3c3c4",
-        "cursor": "#c3c3c4"
+        "background": "#0c101a",
+        "foreground": "#c3c3c5",
+        "cursor": "#c3c3c5"
     },
     "colors": {
-        "color0": "#0c0e19",
-        "color1": "#b52824",
-        "color2": "#f42316",
-        "color3": "#f92719",
-        "color4": "#f82e1d",
-        "color5": "#2a958b",
-        "color6": "#379c85",
-        "color7": "#c3c3c4",
-        "color8": "#455483",
-        "color9": "#b52824",
-        "color10": "#f42316",
-        "color11": "#f92719",
-        "color12": "#f82e1d",
-        "color13": "#2a958b",
-        "color14": "#379c85",
-        "color15": "#c3c3c4"
+        "color0": "#0c101a",
+        "color1": "#9c302a",
+        "color2": "#af4837",
+        "color3": "#d23c2d",
+        "color4": "#dd5439",
+        "color5": "#65a657",
+        "color6": "#a1c35d",
+        "color7": "#c3c3c5",
+        "color8": "#465283",
+        "color9": "#9c302a",
+        "color10": "#af4837",
+        "color11": "#d23c2d",
+        "color12": "#dd5439",
+        "color13": "#65a657",
+        "color14": "#a1c35d",
+        "color15": "#c3c3c5"
     }
 }

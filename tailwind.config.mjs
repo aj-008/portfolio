@@ -15,11 +15,11 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+        mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
         sans: ['"Inter"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        display: ['"Sora"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       colors: {
-        // pulled from src/styles/wal-colors.json (synced from ~/.cache/wal/colors.json)
         bg: wal.special.background,
         surface: wal.colors.color0,
         accent: wal.colors.color4,
