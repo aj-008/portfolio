@@ -2,11 +2,10 @@
 title: "Loop"
 tagline: "A personal dashboard with Google Calendar integration and an AI daily summary"
 stack: ["React", "Vercel", "Google Calendar API"]
-role: "Solo"
 date: 2026-01-01
 featured: true
-demoUrl: "https://loop-your-username.vercel.app"
-githubUrl: "https://github.com/your-username/loop"
+demoUrl: "https://hangoutwithyourfriends.fun"
+githubUrl: "https://github.com/shaybug2282/loop"
 order: 3
 ---
 

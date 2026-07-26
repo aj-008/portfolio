@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
+import typography from '@tailwindcss/typography';
 
 const wal = JSON.parse(
   readFileSync(
@@ -27,5 +28,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [typography],
 };

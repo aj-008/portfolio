@@ -1,31 +1,21 @@
 ---
 title: "Aster"
-tagline: "A Rust cache simulator implementing SRRIP, DRRIP, and other LLC replacement policies"
-stack: ["Rust", "ChampSim traces", "TOML config", "thiserror"]
-role: "Solo"
+tagline: "A validated, event driven cache simulator written in Rust"
+stack: ["Rust"]
 date: 2026-06-01
 featured: true
-githubUrl: "https://github.com/your-username/aster"
+githubUrl: "https://github.com/aj-008/aster"
 order: 1
 ---
 
-Aster is a from-scratch cache replacement policy simulator built to validate and extend
-findings from ChampSim-based research. It reads real trace formats through a `TraceSource`
-trait (with a `ChampSimReader` implementation) and evaluates policies against a
-TOML-based per-policy configuration system.
+Aster is a cache hierarchy simulator I'm building in Rust to explore memory-system design. It reads ChampSim-format memory traces and models a configurable cache hierarchy via TOML-based configuration. LIST MEASURED STATS HERE
 
 ## Highlights
 
-- Implemented a `thiserror`-based error hierarchy for clean, typed failure handling
-- Validated LRU and SRRIP correctness directly against ChampSim reference output
-- Found and diagnosed a fill-hook wiring bug in ChampSim's `cache.h` that silently
-  drops fill callbacks for update-only replacement modules — a bug that had quietly
-  invalidated prior DRRIP/SHiP/Mockingjay parameter sweeps
-- Set up a Claude Code subagent for automated code review on every change
+- Configurable eviction policies and prefetcher
+- Validated correctness directly against ChampSim reference output
+- Models writeback propagation between cache levels
+- Claude Code subagent reviews code 
 
-## Why it matters
-
-Cache replacement policy research leans heavily on simulator correctness. This project
-is as much about building confidence in the underlying tooling as it is about the
-policies themselves — the fill-hook bug in particular is a good example of why
-validating a simulator against reference output isn't optional.
+## Project Photos
+![Miss rate vs LLC size across policies](/projects/aster/test_results.png)

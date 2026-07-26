@@ -1,16 +1,16 @@
 ---
 title: "Do Modern LLC Replacement Policies Generalize to Modern Workloads?"
 tagline: "Research evaluating cache replacement policies across SPEC06, SPEC17, GWT, and Ligra"
-stack: ["ChampSim", "Python", "C++", "LaTeX"]
+stack: ["ChampSim", "Python", "Bash", "C++", "LaTeX"]
 role: "Co-authored with Luciano Galvani"
 date: 2026-03-01
 featured: true
-writeupUrl: "https://your-domain.com/papers/llc-replacement-policies.pdf"
+writeupUrl: "/projects/research/report.pdf"
 order: 2
 ---
 
 A benchmark sweep of last-level cache replacement policies (LRU, Hawkeye, Mockingjay,
-and others) across SPEC06, SPEC17, GWT, and Ligra workloads, built on a custom
+and others) across SPEC06, SPEC17, and GWT workloads, built on a custom
 automation and plotting pipeline plus an instrumented Hawkeye build for measuring
 predictor false-positive rates.
 
@@ -23,7 +23,4 @@ are built on.
 
 ## Notes
 
-Also involved porting Mockingjay to ChampSim's modern class-based API, debugging a
-fill-hook issue in the process, and discovering that earlier parameter sweeps had
-silently produced identical binaries due to stale `.csconfig/` build caches — a
-finding that reshaped how later sweeps in this project (and in Aster) were run.
+Also involved porting Mockingjay, Hawkeye to ChampSim's modern class-based API
