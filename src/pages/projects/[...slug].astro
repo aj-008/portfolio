@@ -17,8 +17,12 @@ const { title, tagline, stack, role, demoUrl, githubUrl, writeupUrl } = project.
 <Layout title={title} description={tagline}>
   <article class="py-12 max-w-2xl">
     <a href="/projects" class="text-sm text-muted hover:text-slate-100">← all projects</a>
-    <h1 class="font-mono text-2xl text-slate-100 mt-4">{title}</h1>
-    {role && <p class="text-sm text-muted mt-1">{role}</p>}
+
+    <div class="mt-6">
+      <h1 class="font-display text-3xl text-slate-100">{title}</h1>
+      <p class="mt-2 text-muted">{tagline}</p>
+      {role && <p class="text-sm text-muted mt-1">{role}</p>}
+    </div>
 
     <div class="mt-4 flex flex-wrap gap-2">
       {stack.map((tech: string) => (
@@ -26,13 +30,30 @@ const { title, tagline, stack, role, demoUrl, githubUrl, writeupUrl } = project.
       ))}
     </div>
 
-    <div class="mt-4 flex gap-4 text-sm">
-      {demoUrl && <a href={demoUrl} class="text-accent">Live demo →</a>}
-      {githubUrl && <a href={githubUrl} class="text-accent">Source →</a>}
-      {writeupUrl && <a href={writeupUrl} class="text-accent">Full write-up →</a>}
-    </div>
+    {(demoUrl || githubUrl || writeupUrl) && (
+      <div class="mt-6 pt-6 border-t border-white/10 flex flex-wrap gap-3 text-sm">
+        {demoUrl && (
+          <a href={demoUrl} target="_blank" rel="noopener noreferrer"
+             class="rounded bg-accent text-bg font-medium px-4 py-2 hover:opacity-90">
+            Live Page →
+          </a>
+        )}
+        {githubUrl && (
+          <a href={githubUrl} target="_blank" rel="noopener noreferrer"
+             class="rounded border border-white/20 px-4 py-2 hover:border-white/40">
+            Source →
+          </a>
+        )}
+        {writeupUrl && (
+          <a href={writeupUrl} target="_blank" rel="noopener noreferrer"
+             class="rounded border border-white/20 px-4 py-2 hover:border-white/40">
+            Full write-up →
+          </a>
+        )}
+      </div>
+    )}
 
-    <div class="prose prose-invert prose-sm mt-8 max-w-none">
+    <div class="prose prose-invert prose-sm mt-10 max-w-none">
       <Content />
     </div>
   </article>

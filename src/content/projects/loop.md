@@ -1,7 +1,7 @@
 ---
 title: "Loop"
-tagline: "A personal dashboard with Google Calendar integration and an AI daily summary"
-stack: ["React", "Vercel", "Google Calendar API"]
+tagline: "A hangout-scheduling app for friend groups, with live acceptance tracking and Google Calendar/Tasks sync"
+stack: ["React", "Vercel", "Google Calendar API", "Google Tasks API", "Claude API"]
 date: 2026-01-01
 featured: true
 demoUrl: "https://hangoutwithyourfriends.fun"
@@ -9,12 +9,21 @@ githubUrl: "https://github.com/shaybug2282/loop"
 order: 3
 ---
 
-A React dashboard that pulls in Google Calendar events and generates a short AI-written
-summary of the day ahead, deployed on Vercel with a serverless API route handling the
-calendar sync and summary generation.
+Loop solves a real coordination problem: getting a group of friends to actually
+agree on a time to hang out. Rather than a group chat where five people ping-pong
+availability, Loop turns a hangout proposal into a trackable object. Loop gives you the ability to see at a glance that a Saturday morning hangout has 1 of 2 invitees accepted, and who still needs to respond.
 
 ## Highlights
 
-- Google Calendar API integration for live event data
-- Server-side AI summary feature via a Vercel API route
-- Deployed and iterated on with preview deployments per branch
+- **AI scheduling assistant** — a two-stage pipeline including a fast model that builds a
+  per-user scheduling profile and a stronger model that proposes concrete times which reads
+  every participant's real Google Calendar availability and proposes plans
+  that work for the whole group
+- **Group and friend management** — persistent friend groups with per-group
+  color coding
+- **Live acceptance tracking** — each proposed hangout shows real-time accept
+  counts, so it's clear when a plan is actually confirmed
+- **Week/month calendar view** with Google Calendar sync, plus a task list that
+  syncs bidirectionally with Google Tasks
+- **Privacy-first by design** — granular per-user controls over whether the
+  assistant can see a person's calendar at all

@@ -24,7 +24,7 @@ const { title, description = 'Personal site and project portfolio.' } = Astro.pr
         <div class="flex gap-6 text-muted">
           <a href="/projects" class="hover:text-slate-100">projects</a>
           <a href="/about" class="hover:text-slate-100">about</a>
-          <a href="https://github.com/aj-008" class="hover:text-slate-100">github</a>
+          <a href="https://github.com/aj-008" target="_blank" rel="noopener noreferrer" class="hover:text-slate-100">github</a>
         </div>
       </nav>
     </header>
@@ -33,8 +33,9 @@ const { title, description = 'Personal site and project portfolio.' } = Astro.pr
       <slot />
     </main>
 
-    <footer class="max-w-3xl w-full mx-auto px-6 py-10 text-xs text-muted">
-      Built with Astro, deployed on Vercel.
+    <footer class="max-w-3xl w-full mx-auto px-6 py-10 text-xs text-muted flex justify-between">
+      <span>Built with Astro, deployed on Vercel.</span>
+      <a href="mailto:allan.romeo@tufts.edu" class="hover:text-slate-100">allan.romeo@tufts.edu</a>
     </footer>
   </body>
 </html>

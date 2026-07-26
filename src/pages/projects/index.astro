@@ -9,7 +9,7 @@ const allProjects = (await getCollection('projects')).sort(
 ---
 <Layout title="Projects">
   <section class="py-12">
-    <h1 class="font-mono text-2xl text-slate-100 mb-8">Projects</h1>
+    <h1 class="font-display text-3xl text-slate-100 mb-8">Projects</h1>
     <div class="grid gap-4 sm:grid-cols-2">
       {allProjects.map((project) => (
         <ProjectCard

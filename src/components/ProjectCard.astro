@@ -12,7 +12,7 @@ const { title, tagline, stack, role, href, demoUrl, githubUrl } = Astro.props;
 ---
 <a href={href} class="group block rounded-lg border border-white/10 bg-surface p-5 transition hover:border-accent/50">
   <div class="flex items-baseline justify-between gap-4">
-    <h3 class="font-mono text-lg text-slate-100 group-hover:text-accent">{title}</h3>
+    <h3 class="font-sans text-lg text-slate-100 group-hover:text-accent">{title}</h3>
     {role && <span class="text-xs text-muted whitespace-nowrap">{role}</span>}
   </div>
   <p class="mt-1 text-sm text-muted">{tagline}</p>
@@ -22,7 +22,7 @@ const { title, tagline, stack, role, href, demoUrl, githubUrl } = Astro.props;
     ))}
   </div>
   <div class="mt-3 flex gap-4 text-xs">
-    {demoUrl && <span class="text-accent">Live demo →</span>}
+    {demoUrl && <span class="text-accent">Live page →</span>}
     {githubUrl && <span class="text-muted">Source →</span>}
   </div>
 </a>
