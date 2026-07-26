@@ -7,8 +7,9 @@ interface Props {
   href: string;
   demoUrl?: string;
   githubUrl?: string;
+  writeupUrl?: string;
 }
-const { title, tagline, stack, role, href, demoUrl, githubUrl } = Astro.props;
+const { title, tagline, stack, role, href, demoUrl, githubUrl, writeupUrl } = Astro.props;
 ---
 <a href={href} class="group block rounded-lg border border-white/10 bg-surface p-5 transition hover:border-accent/50">
   <div class="flex items-baseline justify-between gap-4">
@@ -24,5 +25,6 @@ const { title, tagline, stack, role, href, demoUrl, githubUrl } = Astro.props;
   <div class="mt-3 flex gap-4 text-xs">
     {demoUrl && <span class="text-accent">Live page →</span>}
     {githubUrl && <span class="text-muted">Source →</span>}
+    {writeupUrl && <span class="text-accent">Full write-up →</span>}
   </div>
 </a>

@@ -20,6 +20,7 @@ const allProjects = (await getCollection('projects')).sort(
           href={`/projects/${project.slug}`}
           demoUrl={project.data.demoUrl}
           githubUrl={project.data.githubUrl}
+          writeupUrl={project.data.writeupUrl}
         />
       ))}
     </div>
