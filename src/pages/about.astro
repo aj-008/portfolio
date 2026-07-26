@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
 const skills = [
   'Rust', 'C++', 'Python', 'TypeScript/React',
   'ChampSim', 'Computer Architecture', 'Docker', 'Linux',
@@ -11,7 +10,14 @@ const skills = [
   <section class="py-8 max-w-2xl">
     <h1 class="font-mono text-2xl text-slate-100 mb-6">About Me</h1>
 
-    <div class="prose prose-invert max-w-none">
+    <h2 class="font-mono uppercase tracking-wide text-muted mt-10 mb-4">Skills</h2>
+    <div class="flex flex-wrap gap-2">
+      {skills.map((skill) => (
+        <span class="text-xs font-mono rounded bg-white/5 px-2 py-1 text-slate-300">{skill}</span>
+      ))}
+    </div>
+
+    <div class="prose prose-invert max-w-none mt-10">
       <p>
       I'm a Computer Engineering student at Tufts focused on computer architecture and design. Anything close to the metal excites me, whether it's computer architecture, systems programming, embedded systems, or anywhere the hardware and software have to agree on something. I like learning by digging deep into real systems and pulling things together as I go. I learn fast, work well solo, and love to collaborate when the problem calls for it.
       </p>
@@ -36,13 +42,6 @@ const skills = [
       <p>
         <a href="https://github.com/aj-008/dotfiles" target="_blank" rel="noopener noreferrer">Full dotfiles →</a>
       </p>
-    </div>
-
-    <h2 class="font-mono uppercase tracking-wide text-muted mt-10 mb-4">Skills</h2>
-    <div class="flex flex-wrap gap-2">
-      {skills.map((skill) => (
-        <span class="text-xs font-mono rounded bg-white/5 px-2 py-1 text-slate-300">{skill}</span>
-      ))}
     </div>
   </section>
 </Layout>

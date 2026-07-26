@@ -9,9 +9,13 @@ githubUrl: "https://github.com/shaybug2282/loop"
 order: 3
 ---
 
+import Gallery from '../../components/Gallery.astro';
+
 Loop solves a real coordination problem: getting a group of friends to actually
 agree on a time to hang out. Rather than a group chat where five people ping-pong
 availability, Loop turns a hangout proposal into a trackable object. Loop gives you the ability to see at a glance that a Saturday morning hangout has 1 of 2 invitees accepted, and who still needs to respond.
+
+
 
 ## Highlights
 
@@ -27,3 +31,10 @@ availability, Loop turns a hangout proposal into a trackable object. Loop gives 
   syncs bidirectionally with Google Tasks
 - **Privacy-first by design** — granular per-user controls over whether the
   assistant can see a person's calendar at all
+
+
+<Gallery images={[
+  { src: '/projects/loop/cat.jpg', alt: 'Week view synced with Google Calendar' },
+  { src: '/projects/loop/images.jpg', alt: 'Hangout card with live acceptance tracking' },
+  { src: '/projects/loop/Untitled.jpg', alt: 'AI assistant proposing a time that works for the group' },
+]} />

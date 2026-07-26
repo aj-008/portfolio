@@ -8,6 +8,8 @@ githubUrl: "https://github.com/aj-008/aster"
 order: 1
 ---
 
+import DocSnippet from '../../components/DocSnippet.astro';
+
 Aster is a cache hierarchy simulator I'm building in Rust to explore memory-system design. It reads ChampSim-format memory traces and models a configurable cache hierarchy via TOML-based configuration. LIST MEASURED STATS HERE
 
 ## Highlights
@@ -17,5 +19,7 @@ Aster is a cache hierarchy simulator I'm building in Rust to explore memory-syst
 - Models writeback propagation between cache levels
 - Claude Code subagent reviews code 
 
+
 ## Project Photos
 ![Miss rate vs LLC size across policies](/projects/aster/test_results.png)
+
