@@ -166,20 +166,20 @@ declare module 'astro:content' {
   collection: "projects";
   data: InferEntrySchema<"projects">
 } & { render(): Render[".md"] };
-"gerald.md": {
-	id: "gerald.md";
-  slug: "gerald";
+"digicam.md": {
+	id: "digicam.md";
+  slug: "digicam";
   body: string;
   collection: "projects";
   data: InferEntrySchema<"projects">
 } & { render(): Render[".md"] };
-"loop.md": {
-	id: "loop.md";
+"loop.mdx": {
+	id: "loop.mdx";
   slug: "loop";
   body: string;
   collection: "projects";
   data: InferEntrySchema<"projects">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 };
 
 	};
