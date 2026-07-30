@@ -1,40 +1,96 @@
 ---
 title: "Loop"
 tagline: "A hangout-scheduling app for friend groups, with live acceptance tracking and Google Calendar/Tasks sync"
-stack: ["React", "Vercel", "Google Calendar API", "Google Tasks API", "Claude API"]
-date: 2026-01-01
+stack: ["React", "Vercel", "Supabase", "Google Calendar API", "Google Tasks API", "Claude API"]
+date: 2026-05-01
 featured: true
 demoUrl: "https://hangoutwithyourfriends.fun"
 githubUrl: "https://github.com/shaybug2282/loop"
 order: 3
+thumbnail: "/projects/loop/thumb.png"
 ---
-
 import Gallery from '../../components/Gallery.astro';
 
-Loop solves a real coordination problem: getting a group of friends to actually
-agree on a time to hang out. Rather than a group chat where five people ping-pong
-availability, Loop turns a hangout proposal into a trackable object. Loop gives you the ability to see at a glance that a Saturday morning hangout has 1 of 2 invitees accepted, and who still needs to respond.
+Loop is a scheduling app for friend groups: propose a hangout, and it reads every
+participant's real calendar availability and suggests times that actually work.
+The product is simple. The interesting part is that the component doing the
+suggesting is a language model, which means it is occasionally, confidently wrong
+— and the system is built on the assumption that it will be.
 
-
+The live link runs on a seeded demo account with no sign-in required: groups,
+hangouts, acceptance state, and the calendar and task views are all browsable
+immediately.
 
 ## Highlights
 
-- **AI scheduling assistant** — a two-stage pipeline including a fast model that builds a
-  per-user scheduling profile and a stronger model that proposes concrete times which reads
-  every participant's real Google Calendar availability and proposes plans
-  that work for the whole group
-- **Group and friend management** — persistent friend groups with per-group
-  color coding
-- **Live acceptance tracking** — each proposed hangout shows real-time accept
-  counts, so it's clear when a plan is actually confirmed
-- **Week/month calendar view** with Google Calendar sync, plus a task list that
-  syncs bidirectionally with Google Tasks
-- **Privacy-first by design** — granular per-user controls over whether the
-  assistant can see a person's calendar at all
+- **Two-stage scheduling pipeline** — a cheap model builds durable per-user
+  scheduling profiles; an expensive model does the multi-participant reasoning
+- **Bidirectional Google sync**: week/month calendar views backed by Google
+  Calendar, plus a task list that syncs with Google Tasks
+- **Deterministic validation layer**
+- **Live acceptance tracking**
+- **Per-user privacy controls** 
 
+## Treating the model as untrusted input
+
+Every proposed time passes through a
+deterministic validator before it's rendered:
+
+- Checked against the requester's actual busy intervals
+- Rejected if it resolves to a time in the past
+- Required to carry an explicit UTC offset
+- Capped at three options, so a degenerate response can't flood the UI
+
+All model outputs are required to be accepted first by the user, then by all invited participants.
+
+
+## Cost and latency as a hierarchy problem
+
+Multi-turn group scheduling is expensive if every turn re-sends every
+participant's profile and calendar. The structure Loop uses is as follows:
+
+- **Cheap path, warm.** A fast model (Haiku) builds each user's scheduling profile 
+  (inferred awake hours, weekday rhythm, communication style) on first login and
+  refreshes it at most weekly. 
+- **Expensive path, cold only when it has to be.** The stronger model (Sonnet) handles
+  the actual multi-participant constraint reasoning.
+- **Static prompt prefixes are byte-identical across calls.** All per-request
+  data lives in a separate dynamic block, so the large invariant prefix is a
+  prompt-cache read on every turn after the first rather than a fresh
+  multi-thousand-token send.
+- **Bounded lookup budget.** A turn may perform at most two calendar checks,
+  which keeps worst-case latency and cost predictable instead of
+  model-dependent.
+
+
+## Availability intersection
+
+Finding a workable slot is an interval problem, not a model problem. Each
+participant's Google free/busy response is normalized to UTC, merged into a set
+of non-overlapping busy intervals, and complemented to get free intervals; the
+group's candidate windows are the intersection across participants, filtered by
+minimum duration.
+
+## Privacy at the data layer
+
+Each user controls whether the assistant can see their calendar at all. When
+sharing is off, the calendar is never fetched. The restriction is enforced
+where the data is retrieved, not by instructing the model to ignore context it
+was already given.
 
 <Gallery images={[
   { src: '/projects/loop/landing.png', alt: 'Landing page' },
-  { src: '/projects/loop/dashboard.png', alt: 'Up to date dashboard with easy access to events and friends' },
-  { src: '/projects/loop/chat.png', alt: 'AI assistant proposing a time that works for the group' },
+  { src: '/projects/loop/dashboard.png', alt: 'Dashboard showing upcoming hangouts and acceptance state' },
+  { src: '/projects/loop/chat.png', alt: 'Scheduling assistant proposing times validated against group availability' },
 ]} />
+
+## Current limitations
+
+- **The scheduling assistant isn't reachable from the demo.** Everything the
+  interface does is browsable without an account, but the assistant needs a real
+  Google Calendar to reason over, and Loop's sensitive Calendar and Tasks scopes
+  haven't cleared OAuth verification yet, so live scheduling is limited to
+  allowlisted accounts.
+- **Profiles don't learn from outcomes.** Accept/decline history is stored but
+  not yet fed back into profile refinement.
+
