@@ -4,6 +4,7 @@ tagline: A trace-driven cache hierarchy simulator in Rust
 stack: ["Rust", "Computer Architecture", "ChampSim"]
 githubUrl: "https://github.com/aj-008/aster"
 date: 2026-06-01
+featured: true
 ---
 
 Aster is a trace-driven cache hierarchy simulator I wrote in Rust to test
@@ -13,12 +14,12 @@ L1I / L1D / L2 / LLC hierarchy including dirty bits, writeback propagation, and
 per-level geometry with the replacement policy and prefetcher selected from a
 TOML config.
 
-## Replacement Policy and Prefetcher implementation
+## Replacement Policy and Prefetcher Implementation
 All replacement policies and prefetchers are exposed as trait implementations,
 making adding new configurations plug and play. Specific policy settings are
 exposed through the TOML configuration file. 
 
-## A PC-keyed stream-buffer prefetcher
+## A PC-keyed Stream-buffer Prefetcher
 
 Beyond the cache itself, Aster models a stream-buffer prefetcher keyed on PC,
 with configurable degree and stream count, so prefetching and replacement can be
@@ -31,7 +32,7 @@ its demand-miss stream to within 0.02% at every cache level across a streaming
 scan (libquantum) and a pointer-chasing workload that thrashes the LLC (mcf).
 Full methodology and the per-level comparison are in the [README](https://github.com/aj-008/aster).
 
-## What it doesn't do
+## What It Doesn't Do
 
 Aster has no timing model, so it measures miss behavior rather than cycles or IPC;
 single-core and single-thread; no MSHRs, so it doesn't capture miss-level
