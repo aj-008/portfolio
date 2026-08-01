@@ -12,14 +12,11 @@ thumbnail: "/projects/loop/thumb.png"
 import Gallery from '../../components/Gallery.astro';
 
 Loop is a scheduling app for friend groups: propose a hangout, and it reads every
-participant's real calendar availability and suggests times that actually work.
-The product is simple. The interesting part is that the component doing the
-suggesting is a language model, which means it is occasionally, confidently wrong
-— and the system is built on the assumption that it will be.
+participant's real calendar availability and suggests times that work for everyone.
+
 
 The live link runs on a seeded demo account with no sign-in required: groups,
-hangouts, acceptance state, and the calendar and task views are all browsable
-immediately.
+hangouts, acceptance state, and the calendar and task views are all browsable.
 
 ## Highlights
 
@@ -65,8 +62,7 @@ participant's profile and calendar. The structure Loop uses is as follows:
 
 ## Availability intersection
 
-Finding a workable slot is an interval problem, not a model problem. Each
-participant's Google free/busy response is normalized to UTC, merged into a set
+Each participant's Google free/busy response is normalized to UTC, merged into a set
 of non-overlapping busy intervals, and complemented to get free intervals; the
 group's candidate windows are the intersection across participants, filtered by
 minimum duration.

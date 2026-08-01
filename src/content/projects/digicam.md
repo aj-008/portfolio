@@ -1,6 +1,6 @@
 ---
 title: "Digicam"
-tagline: "A bare-metal digital camera on an STM32L432KC — capture, JPEG decode, display, and SD storage in 64 KB of SRAM"
+tagline: "A bare-metal digital camera on an STM32L432KC with SD card storage"
 stack: ["C", "STM32L432KC", "PlatformIO", "OV2640", "ST7789", "FatFs", "TJpgDec"]
 role: "Team of 4 — EE14 final project"
 date: 2026-05-05
